@@ -32,10 +32,8 @@ ingress:
   enabled: true
   className: "nginx"
   hosts:
-    - host: <lb-ip>.nip.io #E.g.: 141.147.54.51.nip.io
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
+  - <lb-ip>.nip.io #E.g.: 141.147.54.51.nip.io
+
 ```
 
 Usage:
