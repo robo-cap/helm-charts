@@ -1,0 +1,23 @@
+apiVersion: v1
+entries:
+  vllm:
+  - apiVersion: v2
+    appVersion: v0.5.0
+    created: "2024-07-09T09:21:33.377753567Z"
+    description: 'A Helm chart for deploying vLLM. vLLM is a fast and easy-to-use
+      library for LLM inference and serving. '
+    digest: 6fb4c5e51b9584c6c51029b615efddd85ba102ca5b1bc2b9bfe0599a8712504a
+    keywords:
+    - LLM
+    - vLLM
+    - NIM
+    maintainers:
+    - email: andrei.ilas@oracle.com
+      name: Andrei Ilas
+      url: https://github.com/robo-cap
+    name: vllm
+    type: application
+    urls:
+    - https://github.com/robo-cap/helm-charts/releases/download/vllm-0.1.0/vllm-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-07-09T09:21:33.377783232Z"
