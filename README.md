@@ -5,8 +5,8 @@ A collection of helm charts for LLM inferencing using:
 
 ## Enable the Helm repo
 ```bash
-helm repo add 
-helm repo update
+helm repo add oracle-ai-charts https://robo-cap.github.io/helm-charts/
+helm repo update oracle-ai-charts
 ```
 
 ## Usage guides
@@ -41,6 +41,6 @@ ingress:
 Usage:
 ```bash
 # Note by default the resource limit is set to 1 GPU
-helm install mistral-7b-instruct substratusai/vllm \
+helm install mistral-7b-instruct oracle-ai-charts/vllm \
   -f values-override.yaml
 ```
