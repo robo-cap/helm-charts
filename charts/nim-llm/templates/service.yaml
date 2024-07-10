@@ -35,6 +35,9 @@ spec:
     - port: {{ .Values.service.openai_port | default .Values.service.openaiPort }}
       targetPort: http-openai
       name: http-openai
+    - port: 80
+      targetPort: http-openai
+      name: http-default
     {{- if and .Values.model.legacyCompat .Values.model.nemo_port }}
     - port: {{ .Values.service.nemo_port }}
       targetPort: http-nemo

@@ -23,6 +23,9 @@ spec:
   {{- if .Values.statefulSet.enabled }}
   serviceName: {{ include "nim-llm.fullname" . }}
   podManagementPolicy: "Parallel"
+  {{- else }}
+  strategy:
+    type: Recreate
   {{- end }}
   template:
     metadata:
