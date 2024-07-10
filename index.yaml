@@ -21,6 +21,18 @@ entries:
     urls:
     - https://github.com/robo-cap/helm-charts/releases/download/nim-0.1.0/nim-0.1.0.tgz
     version: 0.1.0
+  nim-llm:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-07-10T11:13:44.995731517Z"
+    description: A Helm chart for NVIDIA NIM for LLMs
+    digest: d61eb6d7d6b21e299383a0e2f48a7db6ec67af0974eb31c376176b9168592b1f
+    kubeVersion: '>=v1.23.0-0'
+    name: nim-llm
+    type: application
+    urls:
+    - https://github.com/robo-cap/helm-charts/releases/download/nim-llm-0.2.1/nim-llm-0.2.1.tgz
+    version: 0.2.1
   vllm:
   - apiVersion: v2
     appVersion: v0.5.0
@@ -41,4 +53,4 @@ entries:
     urls:
     - https://github.com/robo-cap/helm-charts/releases/download/vllm-0.1.0/vllm-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-10T08:08:35.328487021Z"
+generated: "2024-07-10T11:13:44.995740955Z"
