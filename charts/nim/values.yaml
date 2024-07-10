@@ -41,11 +41,9 @@ deploy:
   # Ref: Currently not supported with NIM
   args: []
 
-
   # Override env variables
   # Ref: https://docs.nvidia.com/nim/large-language-models/latest/configuration.html#environment-variables
   env: []
-  
   
   volumes: []
   #   - name: model
@@ -64,7 +62,6 @@ deploy:
     size:  50Gi
     storageClass: oci-bv
     cachePath: /mnt/models
-
 
 service:
   name: ""
