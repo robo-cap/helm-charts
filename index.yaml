@@ -1,5 +1,26 @@
 apiVersion: v1
 entries:
+  nim:
+  - apiVersion: v2
+    appVersion: v0.1.0
+    created: "2024-07-10T08:08:35.2604611Z"
+    description: 'A Helm chart for deploying Nvidia NIM LLMs. NVIDIA NIM, part of
+      NVIDIA AI Enterprise, is a set of accelerated inference microservices that allow
+      organizations to run AI models on NVIDIA GPUs anywhere '
+    digest: 8085e0e57dd8bcc9ebb27838b2c59409fb240ee1b80dea8946847674d13ae10c
+    keywords:
+    - LLM
+    - NIM
+    - nVidia
+    maintainers:
+    - email: andrei.ilas@oracle.com
+      name: Andrei Ilas
+      url: https://github.com/robo-cap
+    name: nim
+    type: application
+    urls:
+    - https://github.com/robo-cap/helm-charts/releases/download/nim-0.1.0/nim-0.1.0.tgz
+    version: 0.1.0
   vllm:
   - apiVersion: v2
     appVersion: v0.5.0
@@ -20,4 +41,4 @@ entries:
     urls:
     - https://github.com/robo-cap/helm-charts/releases/download/vllm-0.1.0/vllm-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-09T09:21:33.377783232Z"
+generated: "2024-07-10T08:08:35.328487021Z"
