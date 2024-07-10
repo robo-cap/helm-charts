@@ -11,7 +11,7 @@ helm repo update oracle-ai-charts
 
 ## Usage guides
 
-### vLLM/NIM
+### vLLM
 
 Create the `values-override.yaml` file:
 
@@ -32,7 +32,7 @@ ingress:
   enabled: true
   className: "nginx"
   hosts:
-  - <lb-ip>.nip.io #E.g.: 141.147.54.51.nip.io
+  - <ingress-ip>.nip.io #E.g.: 141.147.54.51.nip.io
 
 ```
 
@@ -40,5 +40,38 @@ Usage:
 ```bash
 # Note by default the resource limit is set to 1 GPU
 helm install mistral-7b-instruct oracle-ai-charts/vllm \
+  -f values-override.yaml
+```
+
+### NIM
+
+Create a Kubernetes secret for authentication to NGC.
+
+```bash
+kubectl create secret docker-registry regcred --docker-server=nvcr.io --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+```
+
+Create the `values-override.yaml` file:
+
+```yaml
+deploy:
+  imagePullSecrets:
+  - name: regcred
+  env:
+  - name: NGC_API_KEY
+    value: <ngc-token>
+
+ingress:
+  enabled: true
+  className: "nginx"
+  hosts:
+  - <ingress-ip>.nip.io #E.g.: 141.147.54.51.nip.io
+
+```
+
+Usage:
+```bash
+# Note by default the resource limit is set to 1 GPU
+helm install llm-nim oracle-ai-charts/nim \
   -f values-override.yaml
 ```
