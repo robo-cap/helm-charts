@@ -66,7 +66,7 @@ spec:
             {{- toYaml .Values.deploy.resources | nindent 12 }}
           env:
             - name: NIM_SERVER_PORT
-              value: {{ .Values.deploy.port }}
+              value: {{ .Values.deploy.port | quote }}
             {{- if .Values.deploy.pvcCache.enabled }}
             - name: NIM_CACHE_PATH
               value: {{ .Values.deploy.pvcCache.cachePath | quote }}
