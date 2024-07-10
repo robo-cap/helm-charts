@@ -15,10 +15,10 @@ deploy:
   
   imagePullSecrets: []
   image:
-    repository: vllm/vllm-openai
+    repository: nvcr.io/nim/meta/llama3-8b-instruct
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "v0.5.0"
+    tag: "latest"
   
   # Customize the port the server API will listen on
   port: 8000
@@ -38,17 +38,12 @@ deploy:
   affinity: {}
   
   # Extra arguments
-  # Ref: https://docs.vllm.ai/en/stable/serving/openai_compatible_server.html#command-line-arguments-for-the-server
-  args:
-  - "--model"
-  - "mistralai/Mistral-7B-Instruct-v0.3"
-  - "--shm-size=16G"
-  - "--download-dir"
-  - "/model"
+  # Ref: Currently not supported with NIM
+  args: []
 
 
   # Override env variables
-  # Ref: https://docs.vllm.ai/en/stable/serving/env_vars.html
+  # Ref: https://docs.nvidia.com/nim/large-language-models/latest/configuration.html#environment-variables
   env: []
   
   
@@ -68,7 +63,7 @@ deploy:
     - ReadWriteOnce
     size:  50Gi
     storageClass: oci-bv
-    cachePath: /root/.cache
+    cachePath: /mnt/models
 
 
 service:
@@ -83,9 +78,10 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-  - example.com
-  pathPrefix: "/"
-  pathType: Prefix
+    - host: example.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls: []
   #  - secretName: example-tls
   #    hosts:

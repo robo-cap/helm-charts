@@ -1,0 +1,27 @@
+{{- if .Values.deploy.pvcCache.enabled }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "nim.fullname" . }}
+  {{- with .Values.deploy.pvcCache.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+    {{- include "nim.labels" . | nindent 4 }}
+spec:
+  {{- with .Values.deploy.pvcCache.accessModes }}
+  accessModes:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.deploy.pvcCache.size | quote }}
+{{- if .Values.deploy.pvcCache.storageClass }}
+{{- if (eq "-" .Values.deploy.pvcCache.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.deploy.pvcCache.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}

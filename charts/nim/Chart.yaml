@@ -1,0 +1,21 @@
+apiVersion: v2
+name: nim
+description: |
+  A Helm chart for deploying Nvidia NIM LLMs.
+  NVIDIA NIM, part of NVIDIA AI Enterprise, is a set of accelerated inference microservices that allow organizations to run AI models on NVIDIA GPUs anywhere
+
+type: application
+
+keywords:
+- LLM
+- NIM
+- nVidia
+
+maintainers:
+- name: Andrei Ilas
+  email: andrei.ilas@oracle.com
+  url: https://github.com/robo-cap
+
+version: 0.1.0
+
+appVersion: "v0.1.0"
